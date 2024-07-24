@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "Strong@Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserverdata:/var/opt/mssql
+
+  blogapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1357:8080"
+    depends_on:
+      - sqlserver
+
+
+volumes:
+  sqlserverdata:
