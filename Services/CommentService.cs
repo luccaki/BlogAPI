@@ -6,10 +6,10 @@ namespace BlogAPI.Services
 {
     public class CommentService : ICommentService
     {
-        private readonly CommentRepository _repository;
-        private readonly PostRepository _postRepository;
+        private readonly ICommentRepository _repository;
+        private readonly IPostRepository _postRepository;
 
-        public CommentService(CommentRepository repository, PostRepository PostRepository)
+        public CommentService(ICommentRepository repository, IPostRepository PostRepository)
         {
             _repository = repository;
             _postRepository = PostRepository;

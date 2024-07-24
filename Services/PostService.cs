@@ -6,9 +6,9 @@ namespace BlogAPI.Services
 {
     public class PostService : IPostService
     {
-        private readonly PostRepository _repository;
+        private readonly IPostRepository _repository;
 
-        public PostService(PostRepository repository)
+        public PostService(IPostRepository repository)
         {
             _repository = repository;
         }
